@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AdminUsersController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,3 +30,9 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__.'/auth.php';
+
+Route::resource('admin/users', AdminUsersController::class);
+
+Route::get('/admin', function(){
+    return view('admin.index');
+});
