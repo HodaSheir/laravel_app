@@ -20,7 +20,7 @@ Route::get('/', function () {
 });
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    return view('admin.index');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
@@ -31,8 +31,12 @@ Route::middleware('auth')->group(function () {
 
 require __DIR__.'/auth.php';
 
-Route::resource('admin/users', AdminUsersController::class);
 
-Route::get('/admin', function(){
-    return view('admin.index');
-});
+
+// Route::get('/admin', function(){
+//     return view('admin.index');
+// });
+
+//Route::middleware('admin')->group(function () {
+    Route::resource('admin/users', AdminUsersController::class);
+//});

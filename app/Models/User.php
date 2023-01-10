@@ -54,4 +54,8 @@ class User extends Authenticatable
         return $this->belongsTo(photo::class,'photo_id');
         
     }
+
+    public function isAdmin(){
+        return $this->role->name == 'adminstrator'; // role here is the first func here in model
+    }
 }
