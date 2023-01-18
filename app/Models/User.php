@@ -58,4 +58,8 @@ class User extends Authenticatable
     public function isAdmin(){
         return $this->role->name == 'adminstrator'; // role here is the first func here in model
     }
+
+    public function posts(){
+        return $this->hasMany(post::class);
+    }
 }
