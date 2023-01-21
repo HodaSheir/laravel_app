@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminUsersController;
 use App\Http\Controllers\AdminPostsController;
+use App\Http\Controllers\AdminCategoriesController;
 
 
 /*
@@ -42,5 +43,7 @@ require __DIR__.'/auth.php';
 //Route::middleware('admin')->group(function () {
     Route::resource('admin/users', AdminUsersController::class);
     Route::resource('admin/posts', AdminPostsController::class);
+    Route::resource('admin/categories', AdminCategoriesController::class);
+
 
 //});
