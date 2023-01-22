@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminUsersController;
 use App\Http\Controllers\AdminPostsController;
 use App\Http\Controllers\AdminCategoriesController;
+use App\Http\Controllers\AdminMediaController;
 
 
 /*
@@ -40,10 +41,10 @@ require __DIR__.'/auth.php';
 //     return view('admin.index');
 // });
 
-//Route::middleware('admin')->group(function () {
+Route::middleware(['auth','admin'])->group(function () {
     Route::resource('admin/users', AdminUsersController::class);
     Route::resource('admin/posts', AdminPostsController::class);
     Route::resource('admin/categories', AdminCategoriesController::class);
-
-
-//});
+    Route::resource('admin/media', AdminMediaController::class);
+    Route::get('media/upload',[AdminMediaController::class,'create'])->name('media.upload');
+});

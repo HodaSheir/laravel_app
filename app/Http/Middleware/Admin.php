@@ -23,7 +23,7 @@ class Admin
             if($user->isAdmin()){
                 return $next($request);
             }else{
-                return redirect(route('/'));
+                return redirect(route('dashboard'));
             }
             
         }
